@@ -19,4 +19,8 @@ class Exercise extends Model
         'attention_weight',
         'score'
     ];
+
+    public function sessions() {
+        return $this->hasManyThrough(Session::class, SessionExercise::class, 'session_id', 'id');
+    }
 }

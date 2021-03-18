@@ -13,6 +13,9 @@
 |
 */
 
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('api/history/{domain}', ['as' => 'score.domains', 'uses' => 'API\DomainScoresController@history']);

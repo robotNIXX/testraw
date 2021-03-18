@@ -37,4 +37,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany(Plan::class, 'user_id');
     }
+
+    public function assessments()
+    {
+        return $this->hasManyThrough(Assessment::class, UserAssessment::class, 'user_id' . 'assessment_id');
+    }
+
+    public function sessions() {
+        return $this->hasManyThrough(Session::class, Plan::class, 'user_id', 'plan_id');
+    }
 }
