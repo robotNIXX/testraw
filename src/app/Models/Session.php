@@ -22,6 +22,6 @@ class Session extends Model
 
     public function exercises()
     {
-        return $this->hasManyThrough(Exercise::class, 'session_exercises', 'session_id', 'exercise_id');
+        return $this->hasManyThrough(Exercise::class, SessionExercise::class, 'session_id', 'exercise_id');
     }
 }
